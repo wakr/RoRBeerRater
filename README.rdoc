@@ -1,1 +1,1 @@
-()[http://wakrolut.herokuapp.com/breweries]
+http://wakrolut.herokuapp.com/breweries
