@@ -2,5 +2,6 @@
 <project version="4">
   <component name="dataSourceStorageLocal">
     <data-source name="Rails ratebeer: development" uuid="bde868ca-08f6-4846-9fbb-e778f9eb278d" />
+    <data-source name="Rails ratebeer: test" uuid="bb934f50-4913-4a65-b35f-12dc96ea106e" />
   </component>
 </project>
