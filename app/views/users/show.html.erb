@@ -8,6 +8,7 @@
     <p>Has made <%=pluralize(@user.ratings.count, "rating")%> ratings, average <%= @user.average_rating %></p>
 <% end %>
 
+<% if @user.memberships.count > 0 %>
 <p>member of </p>
 
 <ul>
@@ -15,14 +16,23 @@
       <li><%=link_to membu.beer_club.name, membu.beer_club%></li>
   <% end %>
 </ul>
-
+<% end %>
 
 <h2>ratings</h2>
 <ul>
   <% @user.ratings.each do |rating| %>
-      <li> <%= rating if rating.beer %> <%= link_to 'delete', rating, method: :delete, data: {confirm: 'Are you sure?' } %> </li>
+      <li>
+        <%= rating %>
+        <% if @user == current_user %>
+            <%= link_to 'delete', rating, method: :delete, data: { confirm: 'Are you sure?' } %>
+        <% end %>
+      </li>
   <% end %>
 </ul>
 
-<%= link_to 'Edit', edit_user_path(@user) %> |
+
+<% if @user == current_user %>
+<%= link_to 'Destroy', @user, method: :delete, data: { confirm: 'Are you sure?' } %>
+<%= link_to 'Edit', edit_user_path(@user) %>
+    <% end %>|
 <%= link_to 'Back', users_path %>
