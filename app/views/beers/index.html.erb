@@ -18,11 +18,11 @@
   <tbody>
     <% @beers.each do |beer| %>
       <tr>
-        <td><%= link_to beer.name, beer %></td>
-        <td><%= beer.style %></td>
+        <td><%= link_to beer.name, beer if beer%></td>
+        <td><%= beer.style if beer  %></td>
         <td><%= link_to beer.brewery.name, beer.brewery if beer.brewery %></td>
-        <td><%= link_to 'Edit', edit_beer_path(beer) %></td>
-        <td><%= link_to 'Destroy', beer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Edit', edit_beer_path(beer) if beer %></td>
+        <td><%= link_to 'Destroy', beer, method: :delete, data: { confirm: 'Are you sure?' } if beer%></td>
       </tr>
     <% end %>
   </tbody>
