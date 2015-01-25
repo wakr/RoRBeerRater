@@ -12,8 +12,12 @@
   <% end %>
 
 
+    <% if @beer_clubs.count > 0%>
     <%= f.select :beer_club_id, options_from_collection_for_select(@beer_clubs, :id, :name) %>
     <%= f.submit %>
+        <%else%>
+        <p>Already a member of every club!</p>
+    <%end%>
 
 <!--
   <div class="field">

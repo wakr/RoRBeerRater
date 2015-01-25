@@ -14,7 +14,7 @@ class MembershipsController < ApplicationController
 
   # GET /memberships/new
   def new
-    @beer_clubs = BeerClub.all
+    @beer_clubs = BeerClub.all.select {|bc| not bc.users.where username: current_user.username}
     @membership = Membership.new
   end
 
