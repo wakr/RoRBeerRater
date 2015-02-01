@@ -1,10 +1,15 @@
 language: ruby
-
 rvm:
- - 2.0.0
-
+- 2.0.0
 script:
- - bundle exec rake db:migrate --trace
- - RAILS_ENV=test bundle exec rake db:migrate --trace
- - bundle exec rake db:test:prepare
- - bundle exec rspec -fd spec/
+- bundle exec rake db:migrate --trace
+- RAILS_ENV=test bundle exec rake db:migrate --trace
+- bundle exec rake db:test:prepare
+- bundle exec rspec -fd spec/
+deploy:
+  provider: heroku
+  api_key:
+    secure: Gj6oUrA4/weFkCc9CFXTJx+7LCrtsJvrOtq6+MnCHR4AXQFCyLLYE2npZvewjf8lE2GbtjE1mg1xxzbcMPJ8d0W1JGxf/SxirrOC0TVPvVdDl993dBGQbY4Kq1GgFNGyJwdEJnYmG3qMz0sFDul3lQpxdZ794OeHfM5U6/5Hwq4=
+  app: wakrolut
+  on:
+    repo: wakr/RoRBeerRater
