@@ -97,6 +97,7 @@
       "/home/kride/Desktop/Koulu/RoR/RoRBeerRater/app/controllers/beer_clubs_controller.rb": [
         1,
         1,
+        1,
         null,
         null,
         null,
@@ -180,8 +181,13 @@
         1,
         null,
         1,
-        415,
-        281,
+        436,
+        286,
+        null,
+        null,
+        1,
+        4,
+        null,
         null,
         null
       ],
@@ -432,6 +438,7 @@
         1,
         1,
         1,
+        1,
         null,
         null,
         null,
@@ -588,12 +595,6 @@
         0,
         null,
         null,
-        1,
-        0,
-        0,
-        0,
-        null,
-        null,
         null,
         null
       ],
@@ -631,6 +632,6 @@
         null
       ]
     },
-    "timestamp": 1422805898
+    "timestamp": 1422811641
   }
 }
