@@ -10,6 +10,7 @@ deploy:
   provider: heroku
   api_key:
     secure: Gj6oUrA4/weFkCc9CFXTJx+7LCrtsJvrOtq6+MnCHR4AXQFCyLLYE2npZvewjf8lE2GbtjE1mg1xxzbcMPJ8d0W1JGxf/SxirrOC0TVPvVdDl993dBGQbY4Kq1GgFNGyJwdEJnYmG3qMz0sFDul3lQpxdZ794OeHfM5U6/5Hwq4=
+  run: "rake db:migrate"
   app: wakrolut
   on:
     repo: wakr/RoRBeerRater
