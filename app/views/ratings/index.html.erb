@@ -9,4 +9,4 @@
   <% end %>
 </ul>
 
-<%= link_to 'new rating', new_rating_path %>
+<%= link_to 'new rating', new_rating_path if current_user%>

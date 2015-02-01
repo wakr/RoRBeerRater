@@ -30,6 +30,19 @@
   <% end %>
 </ul>
 
+<h2>Favourite style</h2>
+<% if @user.ratings.empty? %>
+    <p>No favorite style because has no ratings done yet.</p>
+<% else %>
+    <p><%= @user.favorite_style %></p>
+<% end %>
+
+<h2>Favourite brewery</h2>
+<% if @user.ratings.empty? %>
+    <p>No favorite brewery because has no ratings done yet.</p>
+<% else %>
+    <p><%= link_to @user.favorite_brewery.name, @user.favorite_brewery %></p>
+<% end %>
 
 <% if @user == current_user %>
 <%= link_to 'Destroy', @user, method: :delete, data: { confirm: 'Are you sure?' } %>
