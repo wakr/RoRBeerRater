@@ -93,13 +93,21 @@ RSpec.describe User, :type => :model do
     end
 
     it "with multiple ratings has the most common" do
-      # 1) laske keskiarvo 2) ota kaikki keskiarvon yli 3) ota suurin esiintyvyys
+
       beer1 = Beer.create name: "1", style:"Porter"
       beer2 = Beer.create name: "2", style:"Lager"
       beer3 = Beer.create name: "3", style:"Porter"
-      beer4 = Beer.create name: "4", style:"Stout"
+      beer4 = Beer.create name: "4", style:"Porter"
+
+      # pitäisi tulla lager
+
+      rating = FactoryGirl.create(:rating, beer:beer1, user:user) #10
+      rating2 = FactoryGirl.create(:rating3, beer:beer2, user:user) #17
+      rating3 = FactoryGirl.create(:rating4, beer:beer3, user:user)  #30
+      rating4 = FactoryGirl.create(:rating, beer:beer4, user:user) #10
 
 
+      expect(user.favorite_style).to eq(beer2.style)
     end
 
   end
@@ -125,10 +133,25 @@ RSpec.describe User, :type => :model do
 
     it "with multiple ratings has the most common" do
       # 1) laske keskiarvo 2) ota kaikki keskiarvon yli 3) ota suurin esiintyvyys
-      beer1 = Beer.create name: "1", style:"Porter"
-      beer2 = Beer.create name: "2", style:"Lager"
-      beer3 = Beer.create name: "3", style:"Porter"
-      beer4 = Beer.create name: "4", style:"Stout"
+      brewery = FactoryGirl.create :brewery
+      brewery2 = Brewery.create name: "test", year: 2000
+
+      beer1 = Beer.create name: "1", style:"Porter", brewery_id: brewery.id
+      beer2 = Beer.create name: "2", style:"Lager", brewery_id: brewery2.id
+      beer3 = Beer.create name: "3", style:"Porter", brewery_id: brewery.id
+      beer4 = Beer.create name: "4", style:"Porter", brewery_id: brewery.id
+
+
+
+      # pitäisi tullla lager
+
+      rating = FactoryGirl.create(:rating, beer:beer1, user:user) #10
+      rating2 = FactoryGirl.create(:rating3, beer:beer2, user:user) #17
+      rating3 = FactoryGirl.create(:rating4, beer:beer3, user:user)  #30
+      rating4 = FactoryGirl.create(:rating, beer:beer4, user:user) #10
+
+
+      expect(user.favorite_brewery).to eq(beer2.brewery)
 
 
     end
