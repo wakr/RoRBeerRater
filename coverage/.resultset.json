@@ -106,6 +106,10 @@
         1,
         null
       ],
+      "/home/kride/Desktop/Koulu/RoR/RoRBeerRater/app/helpers/styles_helper.rb": [
+        1,
+        null
+      ],
       "/home/kride/Desktop/Koulu/RoR/RoRBeerRater/app/helpers/users_helper.rb": [
         1,
         null
@@ -231,7 +235,7 @@
         1,
         1,
         1,
-        null,
+        1,
         null,
         null,
         1,
@@ -367,6 +371,11 @@
       "/home/kride/Desktop/Koulu/RoR/RoRBeerRater/app/models/style.rb": [
         1,
         1,
+        null,
+        1,
+        6,
+        null,
+        null,
         null
       ],
       "/home/kride/Desktop/Koulu/RoR/RoRBeerRater/app/controllers/sessions_controller.rb": [
@@ -741,6 +750,6 @@
         null
       ]
     },
-    "timestamp": 1423401087
+    "timestamp": 1423411350
   }
 }

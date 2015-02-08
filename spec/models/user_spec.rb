@@ -94,10 +94,13 @@ RSpec.describe User, :type => :model do
 
     it "with multiple ratings has the most common" do
 
-      beer1 = Beer.create name: "1", style:"Porter"
-      beer2 = Beer.create name: "2", style:"Lager"
-      beer3 = Beer.create name: "3", style:"Porter"
-      beer4 = Beer.create name: "4", style:"Porter"
+      style1 = Style.create name: "Porter", description:"..."
+      style2 = Style.create name: "Lager", description:"..."
+
+      beer1 = Beer.create name: "1", style:style1
+      beer2 = Beer.create name: "2", style:style2
+      beer3 = Beer.create name: "3", style:style1
+      beer4 = Beer.create name: "4", style:style1
 
       # pitäisi tulla lager
 
@@ -107,7 +110,7 @@ RSpec.describe User, :type => :model do
       rating4 = FactoryGirl.create(:rating, beer:beer4, user:user) #10
 
 
-      expect(user.favorite_style).to eq(beer2.style)
+      expect(user.favorite_style.name).to eq(beer2.style.name)
     end
 
   end
@@ -135,11 +138,13 @@ RSpec.describe User, :type => :model do
       # 1) laske keskiarvo 2) ota kaikki keskiarvon yli 3) ota suurin esiintyvyys
       brewery = FactoryGirl.create :brewery
       brewery2 = Brewery.create name: "test", year: 2000
+      style1 = Style.create name: "Porter", description:"..."
+      style2 = Style.create name: "Lager", description:"..."
 
-      beer1 = Beer.create name: "1", style:"Porter", brewery_id: brewery.id
-      beer2 = Beer.create name: "2", style:"Lager", brewery_id: brewery2.id
-      beer3 = Beer.create name: "3", style:"Porter", brewery_id: brewery.id
-      beer4 = Beer.create name: "4", style:"Porter", brewery_id: brewery.id
+      beer1 = Beer.create name: "1", style:style1, brewery_id: brewery.id
+      beer2 = Beer.create name: "2", style:style2, brewery_id: brewery2.id
+      beer3 = Beer.create name: "3", style:style1, brewery_id: brewery.id
+      beer4 = Beer.create name: "4", style:style1, brewery_id: brewery.id
 
 
 

@@ -34,7 +34,7 @@
 <% if @user.ratings.empty? %>
     <p>No favorite style because has no ratings done yet.</p>
 <% else %>
-    <p><%= @user.favorite_style %></p>
+    <%= link_to @user.favorite_style.name, @user.favorite_style %>
 <% end %>
 
 <h2>Favourite brewery</h2>
@@ -42,6 +42,13 @@
     <p>No favorite brewery because has no ratings done yet.</p>
 <% else %>
     <p><%= link_to @user.favorite_brewery.name, @user.favorite_brewery %></p>
+<% end %>
+
+<h2>Favourite beer</h2>
+<% if @user.ratings.empty? %>
+    <p>No favorite beer because has no ratings done yet.</p>
+<% else %>
+    <p><%= link_to @user.favorite_beer.name, @user.favorite_beer %></p>
 <% end %>
 
 <% if @user == current_user %>

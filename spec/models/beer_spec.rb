@@ -1,14 +1,17 @@
 require 'rails_helper'
 
 RSpec.describe Beer, :type => :model do
+
   it "can be added when has name and style" do
-    beer = Beer.create name:"TestBeer", style:"Lager"
+    style_ = Style.create name: "teststyle", description: "..."
+    beer = Beer.create name:"TestBeer", style:style_
     expect(beer).to be_valid
     expect(Beer.count).to eq(1)
   end
 
   it "can't be created without a name" do
-    beer = Beer.create style:"Lager"
+    style_ = Style.create name: "teststyle", description: "..."
+    beer = Beer.create style:style_
     expect(beer).not_to be_valid
   end
 
@@ -25,7 +28,7 @@ RSpec.describe Beer, :type => :model do
     end
 
     it "has the default style" do
-      expect(beer.style).to eq("Lager")
+      expect(beer.style.name).to eq("Lager")
     end
   end
 
