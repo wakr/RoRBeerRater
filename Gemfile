@@ -14,6 +14,7 @@ group :test do
   gem 'launchy'
   gem 'rspec-its'
   gem 'simplecov', require: false
+  gem 'webmock'
 end
 
 group :production do
@@ -21,6 +22,7 @@ group :production do
   gem 'rails_12factor'
 end
 
+gem 'httparty'
 gem 'better_errors'
 gem 'bcrypt', '~> 3.1.7'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'

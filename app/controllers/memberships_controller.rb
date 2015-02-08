@@ -16,6 +16,7 @@ class MembershipsController < ApplicationController
   def new
     @beer_clubs = BeerClub.all.select {|bc| not bc.users.find_by username: current_user.username}
     @membership = Membership.new
+
   end
 
   # GET /memberships/1/edit
@@ -30,7 +31,7 @@ class MembershipsController < ApplicationController
     respond_to do |format|
       if @membership.save
         current_user.memberships << @membership
-        format.html { redirect_to @membership, notice: 'Membership was successfully created.' }
+        format.html { redirect_to @membership.beer_club, notice: "#{@membership.user.username} welcome to club" }
         format.json { render :show, status: :created, location: @membership }
       else
         format.html { render :new }
@@ -58,7 +59,7 @@ class MembershipsController < ApplicationController
   def destroy
     @membership.destroy
     respond_to do |format|
-      format.html { redirect_to memberships_url, notice: 'Membership was successfully destroyed.' }
+      format.html { redirect_to @membership.user, notice: "Membership in #{@membership.beer_club.name} ended." }
       format.json { head :no_content }
     end
   end
