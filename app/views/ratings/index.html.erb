@@ -1,12 +1,56 @@
-<h2>List of ratings</h2>
+<h1><b>Rating statistics</b></h1>
+
+<h2>Top breweries</h2>
+<h3><%= render 'list', datas: @top_breweries %></h3>
+
+<h2>Top beers</h2>
+<h3><%= render 'list', datas: @top_beers %></h3>
+
+<h2>Top styles</h2>
+<h3><%= render 'list', datas: @top_styles %></h3>
+
+<h2>Most active users</h2>
+<table class="table table-hover">
+  <thead>
+  <tr>
+    <th></th>
+    <th>favourite beer</th>
+    <th>prefered style</th>
+    <th>favortite brewery</th>
+    <th>ratings</th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% @top_raters.each do |rater| %>
+      <tr>
+        <td><%= link_to rater.username, rater %></td>
+        <td><%= rater.favorite_beer.name if rater.favorite_beer%></td>
+        <td><%= rater.favorite_style.name if rater.favorite_style %></td>
+        <td><%= rater.favorite_brewery if rater.favorite_brewery %></td>
+        <td><%= rater.ratings.count %></td>
+        <td></td>
+      </tr>
+  <% end %>
+  </tbody>
+</table>
+
 
 <p>Number of ratings: <%=@ratings.count%></p>
 
 
-<ul>
+<ul class="list-group">
   <% @ratings.each do |rating| %>
-      <li> <%= rating if rating.beer %> <%= link_to rating.user.username, rating.user if rating.user%> </li>
+      <li class="list-group-item"> <%= rating if rating.beer %> <%= link_to rating.user.username, rating.user if rating.user%> </li>
   <% end %>
 </ul>
 
-<%= link_to 'new rating', new_rating_path if current_user%>
+<p>Recent ratings:</p>
+
+<ul class="list-group">
+  <% @ratings.recent.each do |rating| %>
+      <li class="list-group-item"> <%= rating if rating.beer %> <%= link_to rating.user.username, rating.user if rating.user%> at <%=rating.created_at%></li>
+  <% end %>
+</ul>
+
+<%= link_to 'new rating', new_rating_path, class:'btn btn-default' if current_user%>

@@ -2,12 +2,14 @@ FactoryGirl.define do
   factory :user do
     username "Pekka"
     password "Foobar1"
+    admin true
     password_confirmation "Foobar1"
   end
 
   factory :user2, class: User do
     username "Kaapo"
     password "Asd1"
+    admin true
     password_confirmation "Asd1"
   end
 

@@ -2,7 +2,7 @@
 
 <h1>Listing Beer Clubs</h1>
 
-<table>
+<table class="table table-hover">
   <thead>
     <tr>
       <th>Name</th>
@@ -18,8 +18,8 @@
         <td><%= link_to beer_club.name, beer_club %></td>
         <td><%= beer_club.founded %></td>
         <td><%= beer_club.city %></td>
-        <td><%= link_to 'Edit', edit_beer_club_path(beer_club) if current_user%></td>
-        <td><%= link_to 'Destroy', beer_club, method: :delete, data: { confirm: 'Are you sure?' } if current_user%></td>
+        <td><%= link_to 'Edit', edit_beer_club_path(beer_club), class:'btn btn-warning' if current_user%></td>
+        <td><%= link_to 'Destroy', beer_club, method: :delete, data: { confirm: 'Are you sure?' } , class:'btn btn-danger'if current_user%></td>
       </tr>
     <% end %>
   </tbody>
@@ -27,4 +27,4 @@
 
 <br>
 
-<%= link_to 'New Beer club', new_beer_club_path %>
+<%= link_to 'New Beer club', new_beer_club_path, class:'btn btn-default' %>

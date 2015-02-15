@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  include RatingAverage
+  include RatingAverage, Rounder
 
   has_secure_password
 
@@ -11,6 +11,13 @@ class User < ActiveRecord::Base
   has_many :ratings, dependent: :destroy
   has_many :beers, through: :ratings
   has_many :memberships, dependent: :destroy
+
+
+  def self.top(n)
+    sorted_by_rating_in_desc_order = User.all.sort_by{ |u| -(u.ratings.count||0) }
+    sorted_by_rating_in_desc_order.take(n)
+    # palauta listalta parhaat n kappaletta
+  end
 
   def favorite_beer
     return nil if ratings.empty?

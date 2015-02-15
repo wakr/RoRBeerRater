@@ -20,14 +20,14 @@
     <%= form_for(@membership) do |f| %>
         <%= f.hidden_field :beer_club_id %>
         <%= f.hidden_field :user_id %>
-        <%= f.submit if not @beer_club.users.include? @membership.user%>
+        <%= f.submit class:'btn btn-default'if not @beer_club.users.include? @membership.user%>
     <% end %>
 
 
     <%= form_for(@membership, method: "delete") do |f| %>
         <%= f.hidden_field :beer_club_id %>
         <%= f.hidden_field :user_id %>
-        <%= f.submit value: "end the membership" if @beer_club.users.include? @membership.user%>
+        <%= f.submit class:'btn btn-danger',value: "end the membership" if @beer_club.users.include? @membership.user%>
     <% end %>
 
     <%= link_to 'Edit', edit_beer_club_path(@beer_club) if current_user%>
