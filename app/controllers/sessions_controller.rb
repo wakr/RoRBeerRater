@@ -6,7 +6,12 @@
 
     def create
       user = User.find_by username: params[:username]
-      if user && user.authenticate(params[:password])
+
+
+
+      if User.banned.include? user
+        redirect_to :back, notice: "Account with a username #{user.username} is banned. Please contact admins."
+      elsif user && user.authenticate(params[:password])
         session[:user_id] = user.id
         redirect_to user_path(user), notice: "Welcome back!"
       else

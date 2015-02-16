@@ -66,8 +66,9 @@ class UsersController < ApplicationController
   def ban
     if current_user and current_user.admin
       user = User.find(params[:id])
-
-      redirect_to users_url
+      user.update_attribute :banned, (not user.banned)
+      new_status = user.banned? ? "frozen" : "active"
+      redirect_to :back, notice: "#{user.username} status changed to #{new_status}"
 
     end
   end

@@ -15,8 +15,8 @@
   <tr>
     <th></th>
     <th>favourite beer</th>
-    <th>prefered style</th>
-    <th>favortite brewery</th>
+    <th>preferred style</th>
+    <th>favourite brewery</th>
     <th>ratings</th>
   </tr>
   </thead>
@@ -27,7 +27,7 @@
         <td><%= link_to rater.username, rater %></td>
         <td><%= rater.favorite_beer.name if rater.favorite_beer%></td>
         <td><%= rater.favorite_style.name if rater.favorite_style %></td>
-        <td><%= rater.favorite_brewery if rater.favorite_brewery %></td>
+        <td><%= rater.favorite_brewery.name if rater.favorite_brewery %></td>
         <td><%= rater.ratings.count %></td>
         <td></td>
       </tr>

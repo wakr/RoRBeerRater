@@ -8,6 +8,10 @@ class User < ActiveRecord::Base
   validates :password, length: {minimum: 4}
   validates_format_of :password, :with => /(?=.*\d)(?=.*([A-Z]))/
 
+  scope :active, -> {where banned:[nil,false]}
+  scope :banned, -> {where banned:true}
+
+
   has_many :ratings, dependent: :destroy
   has_many :beers, through: :ratings
   has_many :memberships, dependent: :destroy
