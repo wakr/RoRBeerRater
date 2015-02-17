@@ -28,37 +28,58 @@ class User < ActiveRecord::Base
     ratings.order(score: :desc).limit(1).first.beer
   end
 
-  def favorite_style
-    return nil if ratings.empty?
-    styles = beers.all.map(&:style)
-    fs = styles.max_by {|s| calculate_average_for_s s}
-    fs
-  end
-
   def favorite_brewery
+    favorite :brewery
+  end
+
+  def favorite_style
+    favorite :style
+  end
+
+  def rated_breweries
+    ratings.map{ |r| r.beer.brewery }.uniq
+  end
+
+  def rated_styles
+    ratings.map{ |r| r.beer.style }.uniq
+  end
+
+  def rated(category)
+    ratings.map{ |r| r.beer.send(category) }.uniq
+  end
+
+  def favorite(category)
     return nil if ratings.empty?
-    ratings.order(score: :desc).limit(1).first.beer.brewery
-    brews = beers.all.map(&:brewery)
-    fb = brews.max_by {|b| calculate_average_for_b b}
-    fb
 
-  end
-
-  def calculate_average_for_s style
-    ratings_with_style = ratings.to_a.select {|r| r.beer.style == style}
-    rating_scores = ratings_with_style.to_a.map(&:score)
-    sumOfAll = rating_scores.sum
-    average = sumOfAll / rating_scores.count
-    average
-  end
-
-
-    def calculate_average_for_b brewery
-      ratings_with_brewery = ratings.to_a.select {|r| r.beer.brewery.name == brewery.name}
-      rating_scores = ratings_with_brewery.to_a.map(&:score)
-      sumOfAll = rating_scores.sum
-      average = sumOfAll / rating_scores.count
-      average
+    category_ratings = rated(category).inject([]) do |set, item|
+      set << {
+          item: item,
+          rating: rating_of(category, item) }
     end
+
+    category_ratings.sort_by { |item| item[:rating] }.last[:item]
+  end
+
+  def rating_of(category, item)
+    ratings_of_item = ratings.select do |r|
+      r.beer.send(category) == item
+    end
+    ratings_of_item.map(&:score).sum / ratings_of_item.count
+  end
+
+  def rating_of_brewery(brewery)
+    ratings_of_brewery = ratings.select do |r|
+      r.beer.brewery == brewery
+    end
+    ratings_of_brewery.map(&:score).sum / ratings_of_brewery.count
+  end
+
+  def rating_of_style(style)
+    ratings_of_style = ratings.select do |r|
+      r.beer.style == style
+    end
+    ratings_of_style.map(&:score).sum / ratings_of_style.count
+  end
+  
 
 end

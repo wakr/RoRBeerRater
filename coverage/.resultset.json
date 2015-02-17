@@ -1,7 +1,7 @@
 {
   "RSpec": {
     "coverage": {
-      "/home/kride/Desktop/Koulu/RoR/RoRBeerRater/app/models/user.rb": [
+      "/media/ExternalSD/Other/RoR/ratebeer/app/models/user.rb": [
         1,
         1,
         null,
@@ -11,6 +11,10 @@
         1,
         1,
         1,
+        null,
+        1,
+        13,
+        null,
         null,
         1,
         1,
@@ -30,40 +34,61 @@
         null,
         1,
         15,
-        12,
-        31,
-        12,
         null,
         null,
         1,
         15,
-        12,
-        12,
-        31,
-        12,
-        null,
         null,
         null,
         1,
-        58,
-        19,
-        19,
-        19,
-        19,
-        null,
+        0,
         null,
         null,
         1,
-        58,
-        19,
-        19,
-        19,
-        19,
+        0,
+        null,
+        null,
+        1,
+        62,
+        null,
+        null,
+        1,
+        30,
+        null,
+        24,
+        null,
+        null,
+        30,
+        null,
+        null,
+        54,
+        null,
+        null,
+        1,
+        30,
+        54,
+        null,
+        30,
+        null,
+        null,
+        1,
+        0,
+        0,
+        null,
+        0,
+        null,
+        null,
+        1,
+        0,
+        0,
+        null,
+        0,
+        null,
         null,
         null,
         null
       ],
-      "/home/kride/Desktop/Koulu/RoR/RoRBeerRater/app/models/concerns/rating_average.rb": [
+      "/media/ExternalSD/Other/RoR/ratebeer/app/models/concerns/rating_average.rb": [
         1,
         1,
         null,
@@ -82,7 +107,7 @@
         null,
         null
       ],
-      "/home/kride/Desktop/Koulu/RoR/RoRBeerRater/app/models/concerns/rounder.rb": [
+      "/media/ExternalSD/Other/RoR/ratebeer/app/models/concerns/rounder.rb": [
         1,
         1,
         null,
@@ -94,7 +119,7 @@
         null,
         null
       ],
-      "/home/kride/Desktop/Koulu/RoR/RoRBeerRater/app/models/rating.rb": [
+      "/media/ExternalSD/Other/RoR/ratebeer/app/models/rating.rb": [
         1,
         1,
         1,
@@ -113,7 +138,7 @@
         null,
         null
       ],
-      "/home/kride/Desktop/Koulu/RoR/RoRBeerRater/app/helpers/application_helper.rb": [
+      "/media/ExternalSD/Other/RoR/ratebeer/app/helpers/application_helper.rb": [
         1,
         1,
         0,
@@ -125,37 +150,37 @@
         null,
         null
       ],
-      "/home/kride/Desktop/Koulu/RoR/RoRBeerRater/app/helpers/beer_clubs_helper.rb": [
+      "/media/ExternalSD/Other/RoR/ratebeer/app/helpers/beer_clubs_helper.rb": [
         1,
         null
       ],
-      "/home/kride/Desktop/Koulu/RoR/RoRBeerRater/app/helpers/beers_helper.rb": [
+      "/media/ExternalSD/Other/RoR/ratebeer/app/helpers/beers_helper.rb": [
         1,
         null
       ],
-      "/home/kride/Desktop/Koulu/RoR/RoRBeerRater/app/helpers/breweries_helper.rb": [
+      "/media/ExternalSD/Other/RoR/ratebeer/app/helpers/breweries_helper.rb": [
         1,
         null
       ],
-      "/home/kride/Desktop/Koulu/RoR/RoRBeerRater/app/helpers/memberships_helper.rb": [
+      "/media/ExternalSD/Other/RoR/ratebeer/app/helpers/memberships_helper.rb": [
         1,
         null
       ],
-      "/home/kride/Desktop/Koulu/RoR/RoRBeerRater/app/helpers/styles_helper.rb": [
+      "/media/ExternalSD/Other/RoR/ratebeer/app/helpers/styles_helper.rb": [
         1,
         null
       ],
-      "/home/kride/Desktop/Koulu/RoR/RoRBeerRater/app/helpers/users_helper.rb": [
+      "/media/ExternalSD/Other/RoR/ratebeer/app/helpers/users_helper.rb": [
         1,
         null
       ],
-      "/home/kride/Desktop/Koulu/RoR/RoRBeerRater/app/models/beer_club.rb": [
+      "/media/ExternalSD/Other/RoR/ratebeer/app/models/beer_club.rb": [
         1,
         1,
         1,
         null
       ],
-      "/home/kride/Desktop/Koulu/RoR/RoRBeerRater/app/controllers/beer_clubs_controller.rb": [
+      "/media/ExternalSD/Other/RoR/ratebeer/app/controllers/beer_clubs_controller.rb": [
         1,
         1,
         1,
@@ -240,7 +265,7 @@
         null,
         null
       ],
-      "/home/kride/Desktop/Koulu/RoR/RoRBeerRater/app/controllers/application_controller.rb": [
+      "/media/ExternalSD/Other/RoR/ratebeer/app/controllers/application_controller.rb": [
         1,
         null,
         null,
@@ -266,7 +291,7 @@
         null,
         null
       ],
-      "/home/kride/Desktop/Koulu/RoR/RoRBeerRater/app/models/beer.rb": [
+      "/media/ExternalSD/Other/RoR/ratebeer/app/models/beer.rb": [
         1,
         1,
         null,
@@ -291,7 +316,7 @@
         null,
         null
       ],
-      "/home/kride/Desktop/Koulu/RoR/RoRBeerRater/app/models/brewery.rb": [
+      "/media/ExternalSD/Other/RoR/ratebeer/app/models/brewery.rb": [
         1,
         1,
         null,
@@ -334,7 +359,7 @@
         null,
         null
       ],
-      "/home/kride/Desktop/Koulu/RoR/RoRBeerRater/app/models/membership.rb": [
+      "/media/ExternalSD/Other/RoR/ratebeer/app/models/membership.rb": [
         1,
         1,
         1,
@@ -343,7 +368,7 @@
         null,
         null
       ],
-      "/home/kride/Desktop/Koulu/RoR/RoRBeerRater/app/controllers/memberships_controller.rb": [
+      "/media/ExternalSD/Other/RoR/ratebeer/app/controllers/memberships_controller.rb": [
         1,
         1,
         null,
@@ -422,7 +447,7 @@
         null,
         null
       ],
-      "/home/kride/Desktop/Koulu/RoR/RoRBeerRater/app/models/style.rb": [
+      "/media/ExternalSD/Other/RoR/ratebeer/app/models/style.rb": [
         1,
         1,
         null,
@@ -457,7 +482,7 @@
         null,
         null
       ],
-      "/home/kride/Desktop/Koulu/RoR/RoRBeerRater/app/controllers/sessions_controller.rb": [
+      "/media/ExternalSD/Other/RoR/ratebeer/app/controllers/sessions_controller.rb": [
         null,
         1,
         1,
@@ -466,6 +491,11 @@
         null,
         1,
         12,
+        null,
+        null,
+        null,
+        12,
+        0,
         12,
         11,
         11,
@@ -482,7 +512,7 @@
         null,
         null
       ],
-      "/home/kride/Desktop/Koulu/RoR/RoRBeerRater/app/controllers/users_controller.rb": [
+      "/media/ExternalSD/Other/RoR/ratebeer/app/controllers/users_controller.rb": [
         1,
         1,
         1,
@@ -551,7 +581,8 @@
         1,
         0,
         0,
-        null,
+        0,
+        0,
         0,
         null,
         null,
@@ -569,7 +600,7 @@
         null,
         null
       ],
-      "/home/kride/Desktop/Koulu/RoR/RoRBeerRater/app/controllers/beers_controller.rb": [
+      "/media/ExternalSD/Other/RoR/ratebeer/app/controllers/beers_controller.rb": [
         1,
         1,
         1,
@@ -656,7 +687,7 @@
         null,
         null
       ],
-      "/home/kride/Desktop/Koulu/RoR/RoRBeerRater/app/controllers/breweries_controller.rb": [
+      "/media/ExternalSD/Other/RoR/ratebeer/app/controllers/breweries_controller.rb": [
         1,
         1,
         1,
@@ -747,7 +778,7 @@
         null,
         null
       ],
-      "/home/kride/Desktop/Koulu/RoR/RoRBeerRater/lib/beermapping_api.rb": [
+      "/media/ExternalSD/Other/RoR/ratebeer/lib/beermapping_api.rb": [
         1,
         1,
         6,
@@ -786,7 +817,7 @@
         null,
         null
       ],
-      "/home/kride/Desktop/Koulu/RoR/RoRBeerRater/app/models/place.rb": [
+      "/media/ExternalSD/Other/RoR/ratebeer/app/models/place.rb": [
         1,
         1,
         1,
@@ -796,7 +827,7 @@
         null,
         null
       ],
-      "/home/kride/Desktop/Koulu/RoR/RoRBeerRater/app/controllers/places_controller.rb": [
+      "/media/ExternalSD/Other/RoR/ratebeer/app/controllers/places_controller.rb": [
         1,
         null,
         null,
@@ -817,7 +848,7 @@
         null,
         null
       ],
-      "/home/kride/Desktop/Koulu/RoR/RoRBeerRater/app/controllers/ratings_controller.rb": [
+      "/media/ExternalSD/Other/RoR/ratebeer/app/controllers/ratings_controller.rb": [
         1,
         1,
         2,
@@ -855,6 +886,6 @@
         null
       ]
     },
-    "timestamp": 1423924656
+    "timestamp": 1424204364
   }
 }
