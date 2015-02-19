@@ -23,4 +23,6 @@ Rails.application.routes.draw do
   root to: 'breweries#index'
   resource :session, only: [:new, :create, :delete]
   post 'places', to:'places#search'
+
+  get 'beerlist', to:'beers#list'
 end
