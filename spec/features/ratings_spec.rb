@@ -27,7 +27,6 @@ describe "Ratings page" do
 
   it "shows the amount of ratings correctly when no ratings" do
     visit ratings_path
-
     expect(page).to have_content "Number of ratings: 0"
   end
 

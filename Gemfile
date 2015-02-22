@@ -21,6 +21,8 @@ group :test do
   gem 'rspec-its'
   gem 'simplecov', require: false
   gem 'webmock'
+  gem 'selenium-webdriver'
+  gem 'database_cleaner'
 end
 
 group :production do
@@ -28,6 +30,8 @@ group :production do
   gem 'rails_12factor'
 end
 
+gem 'omniauth-github'
+gem 'rack-mini-profiler'
 gem 'httparty'
 gem 'better_errors'
 gem 'bcrypt', '~> 3.1.7'

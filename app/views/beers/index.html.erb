@@ -1,31 +1,39 @@
+<h1>Beers</h1>
 
+<div style="border-style: solid;">
+  beerlist-name: <%= ActionController::Base.new.fragment_exist?( 'beerlist-name' ) %>
+  <br>
+  beerlist-style: <%= ActionController::Base.new.fragment_exist?( 'beerlist-style' ) %>
+  <br>
+  beerlist-brewery: <%= ActionController::Base.new.fragment_exist?( 'beerlist-brewery' ) %>
+  <br>
+  current: <%= "beerlist-#{@order}" %>
+</div>
 
-<p id="notice"><%= notice %></p>
+<% cache "beerlist-#{@order}", skip_digest: true do %>
 
-<h1>Listing Beers</h1>
-
-
-<table class="table table-hover">
-  <thead>
-  <tr>
-    <th> <%= link_to 'Name', beers_path(order:"name") %> </th>
-    <th> <%= link_to 'Style', beers_path(order:"style") %> </th>
-    <th> <%= link_to 'Brewery', beers_path(order:"brewery") %> </th>
-  </tr>
-  </thead>
-
-  <tbody>
-  <% @beers.each do |beer| %>
+    <table class="table table-hover">
+      <thead>
       <tr>
-        <td><%= link_to beer.name, beer %></td>
-        <td><%= link_to beer.style, beer.style %></td>
-        <td><%= link_to beer.brewery.name, beer.brewery %></td>
+        <th> <%= link_to 'Name', beers_path(order:"name") %> </th>
+        <th> <%= link_to 'Style', beers_path(order:"style") %> </th>
+        <th> <%= link_to 'Brewery', beers_path(order:"brewery") %> </th>
       </tr>
-  <% end %>
-  </tbody>
-</table>
+      </thead>
+
+      <tbody>
+      <% @beers.each do |beer| %>
+          <tr>
+            <td><%= link_to beer.name, beer %></td>
+            <td><%= link_to beer.style, beer.style %></td>
+            <td><%= link_to beer.brewery.name, beer.brewery %></td>
+          </tr>
+      <% end %>
+      </tbody>
+    </table>
+
+<% end %>
 
 <br>
 
-<%= link_to('New Beer', new_beer_path, class:'btn btn-default') unless current_user.nil? %>
-
+<%= link_to('New Beer', new_beer_path, class:'btn btn-primary') if current_user %>

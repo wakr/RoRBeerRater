@@ -28,9 +28,14 @@ class MembershipsController < ApplicationController
   def create
     @membership = Membership.new(membership_params)
 
+    if not @membership.confirmed
+      Membership.create beer_club_id: @membership.beer_club_id, user_id: current_user.id, confirmed: false
+      redirect_to beer_clubs_path, notice: "Wait for a confirmation."
+      return
+    end
+
     respond_to do |format|
       if @membership.save
-        current_user.memberships << @membership
         format.html { redirect_to @membership.beer_club, notice: "#{@membership.user.username} welcome to club" }
         format.json { render :show, status: :created, location: @membership }
       else
@@ -63,6 +68,7 @@ class MembershipsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
 
   private
     # Use callbacks to share common setup or constraints between actions.

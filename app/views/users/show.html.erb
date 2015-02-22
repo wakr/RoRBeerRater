@@ -1,4 +1,3 @@
-<p id="notice"><%= notice %></p>
 
 <h1>
   <%= @user.username %>
@@ -10,11 +9,21 @@
     <p>Has made <%=pluralize(@user.ratings.count, "rating")%> ratings, average <%= @user.round @user.average_rating %></p>
 <% end %>
 
-<% if @user.memberships.count > 0 %>
+<h2>Beer Clubs</h2>
+<% if @user.confirmed_memberships.count > 0 %>
 <p>member of </p>
 
 <ul class="list-group">
-  <% @user.memberships.each do |membu| %>
+  <% @user.confirmed_memberships.each do |membu| %>
+      <li class="list-group-item list-group-item-info"><%=link_to membu.beer_club.name, membu.beer_club%></li>
+  <% end %>
+</ul>
+<% end %>
+
+<% if @user.unconfirmed_memberships.count > 0 %>
+<p>applied membership for</p>
+<ul class="list-group">
+  <% @user.unconfirmed_memberships.each do |membu| %>
       <li class="list-group-item list-group-item-info"><%=link_to membu.beer_club.name, membu.beer_club%></li>
   <% end %>
 </ul>

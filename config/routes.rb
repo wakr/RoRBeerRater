@@ -3,7 +3,9 @@ Rails.application.routes.draw do
 
   resources :memberships
 
-  resources :beer_clubs
+  resources :beer_clubs do
+    post 'confirm_membership_application', on: :member
+  end
 
   resources :users do
     post 'ban', on: :member
@@ -13,6 +15,8 @@ Rails.application.routes.draw do
   resources :breweries do
     post 'toggle_activity', on: :member
   end
+
+
   resources :places, only:[:index, :show]
 
   get '/', to: 'breweries#index'
@@ -25,4 +29,9 @@ Rails.application.routes.draw do
   post 'places', to:'places#search'
 
   get 'beerlist', to:'beers#list'
+  get 'ngbeerlist', to:'beers#nglist'
+  get 'brewerylist', to:'breweries#list'
+
+  get 'auth/:provider/callback', to: 'sessions#create_oauth'
+
 end

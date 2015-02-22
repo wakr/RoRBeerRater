@@ -11,9 +11,23 @@
 
 <ul>
   <%  @beer_club.users.each do |user| %>
+      <% if not user.memberships.include? @beer_club.unconfirmed_applications %>
       <li> <%= link_to user.username, user%></li>
+          <%end%>
   <% end %>
 </ul>
+
+<%if current_user and not current_user.memberships.include? @beer_club.unconfirmed_applications and @beer_club.unconfirmed_applications%>
+    <h2>Outstanding applications</h2>
+    <ul>
+    <%  @beer_club.users.each do |user| %>
+         <% if user.memberships.include? @beer_club.unconfirmed_applications %>
+              <li> <%= link_to user.username, user%></li>
+            <%= link_to "confirm", confirm_membership_application_beer_club_path(:user => user.id, :club => @beer_club.id),method: :post, class: "btn btn-primary"%>
+        <%end%>
+    <% end %>
+    </ul>
+<%end%>
 
 <% if current_user %>
 

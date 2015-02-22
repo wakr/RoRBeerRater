@@ -4,4 +4,6 @@ class Membership < ActiveRecord::Base
 
   validates :beer_club_id, presence: true, :allow_nil => false
 
+  scope :confirmed, -> {where confirmed:true}
+  scope :unconfirmed, -> {where confirmed:false}
 end

@@ -1,6 +1,6 @@
 class BeerClubsController < ApplicationController
   before_action :set_beer_club, only: [:show, :edit, :update, :destroy]
-  before_action :ensure_that_signed_in, except: [:index, :show]
+  before_action :ensure_that_signed_in, except: [:index, :show, :confirm_membership_application]
 
   # GET /beer_clubs
   # GET /beer_clubs.json
@@ -15,7 +15,7 @@ class BeerClubsController < ApplicationController
     @membership.user = current_user
     @membership.beer_club = @beer_club
 
-    if current_user.memberships.map(&:beer_club_id).include? @beer_club.id
+    if current_user and current_user.memberships.map(&:beer_club_id).include? @beer_club.id
       @membership = current_user.memberships.find_by beer_club_id: @beer_club.id
     end
 
@@ -37,6 +37,8 @@ class BeerClubsController < ApplicationController
 
     respond_to do |format|
       if @beer_club.save
+        ms = Membership.create beer_club_id: @beer_club.id, user_id: current_user.id, confirmed: true
+        @beer_club.memberships << ms
         format.html { redirect_to @beer_club, notice: 'Beer club was successfully created.' }
         format.json { render :show, status: :created, location: @beer_club }
       else
@@ -70,6 +72,16 @@ class BeerClubsController < ApplicationController
     end
   end
 
+  def confirm_membership_application
+      bc = BeerClub.find(params[:club])
+      applicant = User.find(params[:user])
+      application = applicant.unconfirmed_memberships.find_by beer_club_id: bc.id
+      if current_user.confirmed_memberships.include? current_user.confirmed_memberships.find_by beer_club_id: bc.id
+        application.update_attribute(:confirmed, true)
+      end
+      redirect_to :back
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_beer_club
@@ -78,6 +90,6 @@ class BeerClubsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def beer_club_params
-      params.require(:beer_club).permit(:name, :founded, :city)
+      params.require(:beer_club).permit(:name, :founded, :city, :id, :club)
     end
 end

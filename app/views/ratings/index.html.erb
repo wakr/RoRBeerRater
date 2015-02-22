@@ -37,14 +37,14 @@
 
 
 <p>Number of ratings: <%=@ratings.count%></p>
-
-
+<br>
+<!--
 <ul class="list-group">
   <% @ratings.each do |rating| %>
       <li class="list-group-item"> <%= rating if rating.beer %> <%= link_to rating.user.username, rating.user if rating.user%> </li>
   <% end %>
 </ul>
-
+-->
 <p>Recent ratings:</p>
 
 <ul class="list-group">
