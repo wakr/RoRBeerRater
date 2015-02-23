@@ -22,9 +22,6 @@ module Ratebeer
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
 
-    Rails.application.config.middleware.use OmniAuth::Builder do
-      provider :github, ENV['GITHUB_KEY'], ENV['GITHUB_SECRET']
-    end
 
     config.active_record.raise_in_transactional_callbacks = true
     config.autoload_paths += Dir["#{Rails.root}/lib"]

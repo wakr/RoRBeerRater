@@ -1,13 +1,17 @@
 <h1><b>Rating statistics</b></h1>
 
-<h2>Top breweries</h2>
-<h3><%= render 'list', datas: @top_breweries %></h3>
+<% cache "toplists", expires_in:10.minutes ,skip_digest: true do %>
 
-<h2>Top beers</h2>
-<h3><%= render 'list', datas: @top_beers %></h3>
+    <h2>Top breweries</h2>
+    <h3><%= render 'list', datas: @top_breweries %></h3>
 
-<h2>Top styles</h2>
-<h3><%= render 'list', datas: @top_styles %></h3>
+    <h2>Top beers</h2>
+    <h3><%= render 'list', datas: @top_beers %></h3>
+
+    <h2>Top styles</h2>
+    <h3><%= render 'list', datas: @top_styles %></h3>
+
+<% end %>
 
 <h2>Most active users</h2>
 <table class="table table-hover">

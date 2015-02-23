@@ -5,6 +5,20 @@
     end
 
     def create_oauth
+
+        new_user = User.new username: env["omniauth.auth"].info.nickname, password: env["omniauth.auth"].uid, password_confirmation: env["omniauth.auth"].uid
+
+
+
+        if User.all.find_by(username: new_user.username).nil?
+          u = User.create username: env["omniauth.auth"].info.nickname, password: env["omniauth.auth"].uid, password_confirmation: env["omniauth.auth"].uid
+          session[:user_id] =  u.id
+        else
+          fetched_u = User.all.find_by(username: new_user.username)
+          session[:user_id] = fetched_u.id
+        end
+
+
         byebug
     end
 

@@ -30,6 +30,11 @@ group :production do
   gem 'rails_12factor'
 end
 
+gem 'sidekiq'
+gem 'sinatra', require: false
+gem 'slim'
+
+gem 'puma'
 gem 'omniauth-github'
 gem 'rack-mini-profiler'
 gem 'httparty'

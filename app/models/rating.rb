@@ -1,6 +1,6 @@
 class Rating < ActiveRecord::Base
   belongs_to :beer, touch: true
-  belongs_to :user
+  belongs_to :user, touch: true
 
   include Rounder
 

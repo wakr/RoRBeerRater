@@ -7,7 +7,7 @@ class Beer < ActiveRecord::Base
   belongs_to :brewery, touch: true
   has_many :ratings, dependent: :destroy
   has_many :raters, -> {uniq}, through: :ratings, source: :user
-  belongs_to :style
+  belongs_to :style, touch: true
 
 
   def to_s
