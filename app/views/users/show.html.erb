@@ -45,7 +45,7 @@
 <% if @user.ratings.empty? %>
     <p>No favorite style because has no ratings done yet.</p>
 <% else %>
-    <%= link_to @user.favorite_style.name, @user.favorite_style %>
+    <%= link_to @user.favorite_style.name, @user.favorite_style if @user.favorite_style%>
 <% end %>
 
 <h2>Favourite brewery</h2>

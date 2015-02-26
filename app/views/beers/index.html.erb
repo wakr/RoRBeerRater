@@ -1,5 +1,6 @@
 <h1>Beers</h1>
 
+<!--
 <div style="border-style: solid;">
   beerlist-name: <%= ActionController::Base.new.fragment_exist?( 'beerlist-name' ) %>
   <br>
@@ -9,6 +10,7 @@
   <br>
   current: <%= "beerlist-#{@order}" %>
 </div>
+-->
 
 <% cache "beerlist-#{@order}", skip_digest: true do %>
 

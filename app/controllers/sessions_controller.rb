@@ -1,25 +1,34 @@
 
   class SessionsController < ApplicationController
+
+    require "securerandom"
+
+    include SecureRandom
+
     def new
       # renderöi kirjautumissivun
     end
 
     def create_oauth
 
-        new_user = User.new username: env["omniauth.auth"].info.nickname, password: env["omniauth.auth"].uid, password_confirmation: env["omniauth.auth"].uid
+          new_user = User.new username: env["omniauth.auth"].info.nickname
+
+          if User.all.find_by(username: new_user.username).nil?
+            secure_token = env["omniauth.auth"].uid + giveSecureToken
+            new_user = User.create username: env["omniauth.auth"].info.nickname, password: secure_token, password_confirmation: secure_token
+            session[:user_id] =  new_user.id
+            redirect_to user_path(new_user), notice: "Welcome to the system!"
+          else
+            new_user = User.all.find_by username: new_user.username
+            session[:user_id] =  new_user.id
+            redirect_to user_path(new_user), notice: "Welcome back!"
+          end
 
 
 
-        if User.all.find_by(username: new_user.username).nil?
-          u = User.create username: env["omniauth.auth"].info.nickname, password: env["omniauth.auth"].uid, password_confirmation: env["omniauth.auth"].uid
-          session[:user_id] =  u.id
-        else
-          fetched_u = User.all.find_by(username: new_user.username)
-          session[:user_id] = fetched_u.id
-        end
 
 
-        byebug
+
     end
 
     def create
@@ -43,4 +52,11 @@
       # uudelleenohjataan sovellus pääsivulle
       redirect_to :root
     end
+
+    private
+
+    def giveSecureToken
+      SecureRandom.urlsafe_base64(2) + (0...2).map { ('A'..'Z').to_a[rand(26)] }.join
+    end
+
   end
